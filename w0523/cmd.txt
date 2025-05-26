@@ -1,0 +1,8 @@
+-서버 연결 (프로젝트 폴더에서)
+python manage.py runserver
+
+
+
+cd.. >> 뒤로
+cd (폴더이름) >> 폴더로 이동
+dir >> 현재 디렉토리 출력?

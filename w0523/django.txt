@@ -1,0 +1,89 @@
+python manage.py runserver
+>> 서버 실행
+
+
+[ 생성 ]
+django-admin startproject (폴더이름)
+>> 프로젝트 폴더 생성
+
+python manage.py startapp (앱 폴더)
+>> 앱 폴더 생성
+
+
+
+[   DB   ]
+python manage.py migrate 
+>> 데이터베이스 생성
+
+python manage.py makemigrations
+>> 데이터베이스에 반영할 것이 있는지 확인
+
+python manage.py createsuperuser
+>> 관리자user 등록
+
+
+
+
+
+
+
+[   DB에 접근해서 DB 추가   ]
+python manage.py shell
+
+
+from students.models import Student
+
+- 장고에서 사용하는 db select 구문
+Student.objects.all() 			(= select * from Student; )
+Student.objects.get(name='홍길동')		(= select * from Student where name='홍길동';)
+
+
+- 테이블 행 저장하기 (insert)
+qs = Student(name='유관순', major='국문학과', age=21, grade=2, gender='여자')
+qs.save()
+
+Student(name='유관순', major='국문학과', age=21, grade=2, gender='여자').save()
+
+Student.objects.create(
+name='유관순', major='국문학과', age=21, grade=2, gender='여자')
+
+
+- 변수로 저장해서 사용 가능
+qs = Student.objects.all()
+qs.name
+qs[1] 	( 모든 데이터 읽어와서 분리 )
+등
+
+- 조건문(검색-where)
+Student.objects.filter(age__lt=22)	(less than)
+Student.objects.filter(name__contains='순')
+
+- 값 변경(수정-update)
+qs = Student.objects.get(name='홍길동')
+qs.age = 22
+qs.save()
+
+- 삭제하기 (delete)
+Student.objects.get(name='홍길동').delete()
+
+qs = Student.objects.get(name='홍길동')
+qs.delete()
+
+- 모두 삭제
+Student.objects.all().delete()
+
+- <null> 검색
+Students.objects.filter(name__=True)		(select * from Student where name is null;)
+
+- 조건 존재 여부
+Student.objects.filter(age=20).exists()
+
+
+- aggregate(): 그룹함수
+					(select max(age) from Student;) 같은 식
+Student.objects.aggregate(sum('age'))
+
+
+- 정렬
+Student.objects.order_by('grade')	>> 순차정렬
+Student.objects.order_by('-grade')	>> 역순정렬

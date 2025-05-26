@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{text-align:center;}
+        table{width:800px; margin:10px auto; text-align:center;}
+    </style>
+</head>
+<body>
+    <h2>stuscore</h2>
+    {% if list %}
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>국어성적</th>
+            <th>영어성적</th>
+            <th>수학성적</th>
+            <th>합계</th>
+            <th>평균</th>
+        </tr>
+        {% for l in list %}
+        <tr>
+            <td>{{l.no}}</td>
+            <td>{{l.name}}</td>
+            <td>{{l.kor}}</td>
+            <td>{{l.eng}}</td>
+            <td>{{l.math}}</td>
+            <td>{{l.total}}</td>
+            <td>{{l.avg}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
