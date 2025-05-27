@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생등록페이지</title>
+</head>
+<body>
+    <h2>학생정보 등록</h2>
+    <form name='frm' action='/students/write2/' method='post'>    {% comment %} post나 get 방법밖에 없음? form에서는? {% endcomment %}
+        {% csrf_token %}    {% comment %} csrf_token 무조건 넣어야 함 {% endcomment %}
+        <label>이름</label>
+        <input type='text' name='name'><br>
+        <label>전공</label>
+        <input type='text' name='major'><br>
+        <label>학년</label>
+        <input type='text' name='grade'><br>
+        <label>나이</label>
+        <input type='text' name='age'><br>
+        <label>성별</label><br>
+        <input type='radio' name='gender' value='남성' id='male'>
+        <label for='male'>남성</label>
+        <input type='radio' name='gender' value='여성' id='female'>
+        <label for='female'>여성</label>
+        <br>
+        <input type='submit' value='저장'>
+    </form>
+</body>
+</html>
