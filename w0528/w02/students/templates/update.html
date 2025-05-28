@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{text-align:center;}
+        div{width:400px; margin:0 auto; display:flex;}
+        label{font-size:18px; margin-right:15px;}
+        input[type='text'],input[type='number']{width:320px; height:30px; margin:15px 0; font-size:17px;}
+        #btn{display:flex; justify-content:center; margin-top:30px;}
+        input[type='submit']{width:100px; height:40px; font-size:15px;}
+    </style>
+</head>
+<body>
+    <h2>학생 등록하기</h2>
+    <div>
+    <form name='frm' method='post' action='/students/update/{{stu.name}}/'>
+        {% csrf_token %}
+        <label>이름</label>
+        <input type='text' name='name' value='{{stu.name}}'><br>
+        <label>전공</label>
+        <input type='text' name='major' value='{{stu.major}}'><br>
+        <label>학년</label>
+        <input type='number' name='grade' value='{{stu.grade}}'><br>
+        <label>나이</label>
+        <input type='number' name='age' value='{{stu.age}}'><br>
+        <label>성별</label>
+        <input type='radio' name='gender' value='여자' id='f' {% if '여' in stu.gender %} checked {% endif %}>
+        <label for='f'>여자</label>
+        <input type='radio' name='gender' value='남자' id='m' {% if '남' in stu.gender %} checked {% endif %}>
+        <label for='m'>남자</label><br>
+        <div id='btn'><input type='submit' value='저장'></div>
+    </form>
+    </div>
+</body>
+</html>

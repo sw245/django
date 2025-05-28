@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생정보 리스트</title>
+    <style>
+        h2{text-align:center;}
+        table,th,td{border:1px solid black; border-collapse:collapse;}
+        table{width:900px;text-align:center;margin:0 auto;}
+        th,td{height:40px;}
+        div{width:400px; margin:0 auto; display:flex; justify-content:center;}
+        button{width:150px; height:50px; font-size:20px; margin:0 5px; }
+    </style>
+</head>
+<body>
+
+    {# <!-- 장고 html 문법: {% python 코드 %} / {{ 변수 }} / {{ 변수 | 옵션 }}  -->  #}
+    <!-- django에서는 html 주석문 안에 django 명령어 넣으면 실행됨 >> django 주석문에 따로 넣기 -->
+
+    <h2>학생 리스트</h2>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>학과</th>
+        </tr>
+        
+        {% for l in list %}
+        <tr>
+            <td>{{forloop.counter}}</td>      {# forloop.counter 쓰면 됨 #} 
+            <td><a href='/students/view/?name={{l.name}}'>{{l.name}}</a></td>
+            <td>{{l.major}}</td>
+        </tr>
+        {% endfor %}
+        {% comment %} <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>컴퓨터공학과</td>
+        </tr> {% endcomment %}
+    </table><br>
+    <div>
+        <a href='/'><button>HOME</button></a>
+        <a href='/students/write'><button>학생 등록</button></a>
+    </div>
+</body>
+</html>

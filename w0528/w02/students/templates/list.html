@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{text-align:center;}
+        table{margin:0 auto; width:450px; text-align:center;}
+        th{height:40px;}
+        td{height:30px;}
+        div{width:300px; height:50px; margin:20px auto; display:flex; justify-content:center;}
+        button{width:120px; height:50px;
+            margin:0 10px; font-size:15px;}
+    </style>
+</head>
+<body>
+    <h2>학생 리스트</h2>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>전공</th>
+            {% comment %} <th>학년</th>
+            <th>나이</th>
+            <th>성별</th> {% endcomment %}
+        </tr>
+        {% for l in list %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td><a href='/students/view/?name={{l.name}}'>{{l.name}}</a></td>
+            <td>{{l.major}}</td>
+            {% comment %} <td>{{l.grade}}</td>
+            <td>{{l.age}}</td>
+            <td>{{l.gender}}</td> {% endcomment %}
+        </tr>
+        {% endfor %}
+    </table>
+    <div>
+        <a href='/'><button>메인으로</button></a>
+        <a href='/students/write/'><button>학생 등록하기</button></a>
+    </div>
+</body>
+</html>
