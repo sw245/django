@@ -49,7 +49,7 @@
     <h1>관리자 글쓰기</h1>
     <hr>
 
-    <form action="/board/write/" name="write" method="post">
+    <form action="/board/write/" name="write" method="post" enctype='multipart/form-data'>  <!-- enctype : 파일 업로드 시 필요-->
       {% csrf_token %}
       <table>
         <colgroup>

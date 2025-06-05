@@ -49,7 +49,7 @@
     <h1>관리자 글쓰기</h1>
     <hr>
 
-    <form action="/board/reply/{{post.no}}/" name="reply" method="post">
+    <form action="/board/reply/{{post.no}}/" name="reply" method="post" enctype='multipart/form-data'>
       {% csrf_token %}
       <input type='hidden' name='bgroup', value={{post.bgroup}}>
       <input type='hidden' name='bindent', value={{post.bindent}}>

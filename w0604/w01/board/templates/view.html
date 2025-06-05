@@ -54,11 +54,16 @@
         <th>{{post.title}}</th>
       </tr>
       <tr>
-        <td>{{post.bdate}}</td>
+        <td>{{post.name}}</td>
       </tr>
       <tr>
         <td class="article">
         {{post.content}}
+        <hr>
+        {% if post.bfile %}
+        <strong>이미지첨부</strong> <span class="separator">|</span>
+        <img src='/media/{{post.bfile}}'>{{post.bfile}}
+        {% endif %}
         </td>
       </tr>
       <tr>
@@ -70,7 +75,7 @@
     </table>
 
 
-    <a href='/board/list/'><div class="list">목록</div></a>
+    <a href='/board/list/?category={{category}}&search={{search}}'><div class="list">목록</div></a>
     <a href='/board/delete/{{post.no}}/'><div class="list">삭제</div></a>
     <a href='/board/update/{{post.no}}/'><div class="list">수정</div></a>
     <a href='/board/reply/{{post.no}}/'><div class="list">답글</div></a>
