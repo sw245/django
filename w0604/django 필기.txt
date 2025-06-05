@@ -1,0 +1,38 @@
+
+-- django DB 
+
+AutoField		오라클 시퀀스? primary_key 설정 가능.
+BooleanField
+CharField
+DateField
+DateTimeField	
+IntegerField
+TextField		오라클 clob
+
+
+models.ForeignKey(User,~?)
+
+
+{{forloop.counter}}	>> 1씩 증가하는 번호 부여
+
+
+request.session.clear()	세션 모두 지우기
+
+
+
+
+view.py 구현할 때
+
+from django.db.models import F,Q
+
+Q - and(&),or(|),not(~) 쓸 때 사용? 
+F - 특정 컬럼 뽑아내기
+
+
+** paginator **
+
+has_previous : 이전페이지가 있는지 확인
+      has_next : 다음페이지가 있는지 확인
+      previous_page_number : 이전페이지 번호
+      next_page_number : 이후페이지 번호
+      paginator.page_range : 페이지 배열
