@@ -1,0 +1,42 @@
+https://apis.data.go.kr/B551011/PhotoGalleryService1/galleryList1?
+serviceKey=%2FjAVLJGJZwHZGVorf%2Fajiyz7RdhV3oK%2Fblc9UUxnyUtQHw6smo%2B%2BPq4zUs4viIvtUAxG6Zj3YNu%2Bnt6xQ8WnZw%3D%3D
+&numOfRows=10
+&pageNo=1
+&MobileOS=ETC
+&MobileApp=AppTest
+&arrange=A
+&_type=json
+
+
+
+카카오 로그인 REST API
+https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api#request-code
+
+
+
+
+앱 키:
+REST API
+8a91f2893ceabcb4aabf39142dec3367
+
+1. 인가코드 받기
+method: GET
+url: https://kauth.kakao.com/oauth/authorize
+
+2. 요청 - 쿼리 파라미터
+client_id :
+8a91f2893ceabcb4aabf39142dec3367
+
+redirect_uri:
+http://localhost:8000/kakao/oauth
+
+response_type:
+code
+
+
+예제
+https://kauth.kakao.com/oauth/authorize?response_type=code
+&client_id=8a91f2893ceabcb4aabf39142dec3367
+&redirect_uri=http://localhost:8000/kakao/oauth
+
+
