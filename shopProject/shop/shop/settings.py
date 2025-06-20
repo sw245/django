@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'member',
     'home',
     'customer.apps.CustomerConfig',
+    'comment',
 ]
 
 MIDDLEWARE = [
